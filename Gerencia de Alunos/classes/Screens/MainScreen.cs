@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static Gerencia_de_Alunos.classes.Screen;
 
-namespace Gerencia_de_Alunos.classes
+namespace Gerencia_de_Alunos.classes.Screens
 {
-    internal class MainScreen
+    public class MainScreen:Screen
     {
-
+        public MainScreen() {
+            this.addAction(() => { Console.WriteLine("Hello World"); }, "Ola mundo");
+        }
     }
 }
