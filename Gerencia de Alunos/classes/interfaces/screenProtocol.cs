@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 
 namespace Gerencia_de_Alunos.classes.interfaces
 {
-    public abstract class screenProtocol
+    public interface screenProtocol
     {
-        protected abstract int qtsActions();
-        protected abstract void addAction(Action newAction, string name);
-        public abstract void show();
-        public abstract void showOptions();
+        bool active { get; set; }
+        List<string> actionsName { get; set; }
+        Dictionary<int, Action> actions { get; set; }
+        int qtsActions();
+        void addAction(Action newAction, string name);
+        void show();
+        void showOptions();
     }
 }

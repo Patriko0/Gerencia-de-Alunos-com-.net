@@ -7,16 +7,16 @@ using Gerencia_de_Alunos.classes.interfaces;
 
 namespace Gerencia_de_Alunos.classes
 {
-    public abstract class Screen: screenProtocol
+    public abstract class Screen : screenProtocol
     {
-        protected bool active = false;
-        protected List<string> actionsName = new List<string>();
-        protected Dictionary<int, Action> actions = new Dictionary<int, Action>();
+        public bool active { get; set; } = false;
+        public List<string> actionsName { get; set; } = new List<string>();
+        public Dictionary<int, Action> actions { get; set; } = new Dictionary<int, Action>();
 
-        protected override int qtsActions() => actions.Count;
-        protected override void addAction(Action newAction, string name) { this.actions.Add(this.qtsActions(), newAction); actionsName.Add(name); }
+        public int qtsActions() => actions.Count;
+        public void addAction(Action newAction, string name) { this.actions.Add(this.qtsActions(), newAction); actionsName.Add(name); }
 
-        public override void show()
+        public void show()
         {
             int option;
             active = true;
@@ -37,7 +37,7 @@ namespace Gerencia_de_Alunos.classes
             }
         }
 
-        public override void showOptions() {
+        public void showOptions() {
             foreach(string name in this.actionsName)
             {
                 Console.WriteLine(this.actionsName.IndexOf(name).ToString() + ". " + name);
