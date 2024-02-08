@@ -46,6 +46,7 @@
     <Compile Include="classes\Aluno.cs" />
     <Compile Include="classes\Curso.cs" />
     <Compile Include="classes\Disciplina.cs" />
+    <Compile Include="classes\interfaces\Identity.cs" />
     <Compile Include="classes\interfaces\screenProtocol.cs" />
     <Compile Include="classes\Screen.cs" />
     <Compile Include="classes\Screens\AlunoScreen.cs" />
