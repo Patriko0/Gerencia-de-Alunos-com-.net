@@ -46,16 +46,14 @@
     <Compile Include="classes\Aluno.cs" />
     <Compile Include="classes\Curso.cs" />
     <Compile Include="classes\Disciplina.cs" />
-    <Compile Include="classes\interfaces\Screen.cs" />
-    <Compile Include="classes\MainScreen.cs" />
+    <Compile Include="classes\Screen.cs" />
+    <Compile Include="classes\Screens\MainScreen.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="classes\Screens\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
