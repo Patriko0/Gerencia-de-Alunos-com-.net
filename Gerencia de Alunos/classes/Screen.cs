@@ -28,13 +28,10 @@ namespace Gerencia_de_Alunos.classes
                 option = int.Parse(Console.ReadLine());
                 if(option >= this.qtsActions()) {
                     active = false;
-                    continue;
+                    break;
                 }
 
                 actions[option]();
-
-                Console.Write("\nPressione enter para continuar");
-                Console.ReadLine();
 
             }
         }

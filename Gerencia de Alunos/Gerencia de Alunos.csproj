@@ -47,9 +47,13 @@
     <Compile Include="classes\Curso.cs" />
     <Compile Include="classes\Disciplina.cs" />
     <Compile Include="classes\Screen.cs" />
+    <Compile Include="classes\Screens\AlunoScreen.cs" />
+    <Compile Include="classes\Screens\CursoScreen.cs" />
+    <Compile Include="classes\Screens\DisciplinaScreen.cs" />
     <Compile Include="classes\Screens\MainScreen.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="services\Enter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
