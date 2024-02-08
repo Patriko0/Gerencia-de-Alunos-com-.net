@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Gerencia_de_Alunos.classes.Screens
+﻿namespace Gerencia_de_Alunos.classes.Screens
 {
     public class MainScreen:Screen
     {
