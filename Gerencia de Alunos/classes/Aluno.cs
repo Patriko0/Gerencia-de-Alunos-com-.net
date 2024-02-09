@@ -8,15 +8,16 @@ namespace Gerencia_de_Alunos.classes
     {
         public string name { get; set; }
         public int id { get; }
+        private static int newId = 0;
         public int idade;
 
         public Curso curso;
         private Dictionary<string, float> notas = new Dictionary<string, float>();
 
-       public Aluno(string name, int id, int idade, Curso curso)
+       public Aluno(string name, int idade, Curso curso)
         {
             this.name = name;
-            this.id = id;
+            this.id = newId++;
             this.idade = idade;
             this.curso = curso;
 
@@ -41,7 +42,12 @@ namespace Gerencia_de_Alunos.classes
 
         public void updateNota(string discip, float nota) => this.notas[discip] = nota;
 
-        public void show() => Console.WriteLine( "Nome: {0}\nIdade: {1}\nMatricula: {2}\nCurso: {3}\n", name,idade,id,curso.name);
+        public void updateInfo(string name)
+        {
+            this.name = name;
+        }
+
+        public void show() => Console.WriteLine( "\nNome: {0}\nIdade: {1}\nMatricula: {2}\nCurso: {3}\n", name,idade,id,curso.name);
         
     }
 }

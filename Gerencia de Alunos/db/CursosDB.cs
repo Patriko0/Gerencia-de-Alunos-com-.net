@@ -9,7 +9,7 @@ namespace Gerencia_de_Alunos.db
     public class CursosDB : CRUDProtocol
     {
         private static CursosDB dbQuery;
-        private List<Curso> cursos;
+        private static List<Curso> cursos;
 
         private CursosDB()
         {
@@ -29,7 +29,7 @@ namespace Gerencia_de_Alunos.db
             return CursosDB.dbQuery;
         }
 
-        public void store(dynamic info) => this.cursos.Add(new Curso(info.name));
+        public void store(dynamic info) => cursos.Add(new Curso(info.name));
 
        
         public void show()
@@ -60,12 +60,12 @@ namespace Gerencia_de_Alunos.db
         
         public void update(int id, dynamic obj)
         {
-            Curso durs = getCurso(id);
-            durs.update(obj.newName);
+            Curso curs = getCurso(id);
+            curs.update(obj.newName);
         }
 
 
-        public Curso getCurso(int id) => this.cursos.Where(item => item.id == id).FirstOrDefault();
+        public Curso getCurso(int id) => cursos.Where(item => item.id == id).FirstOrDefault();
 
     }
 }
