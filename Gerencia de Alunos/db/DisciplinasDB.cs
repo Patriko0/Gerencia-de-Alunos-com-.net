@@ -29,13 +29,13 @@ namespace Gerencia_de_Alunos.db
             return DisciplinasDB.dbQuery;
         }
 
-        public void store(string name, int carg_hr) => this.disciplinas.Add(new Disciplina(name, carg_hr));
+        public void store(dynamic info) => this.disciplinas.Add(new Disciplina(info.name, info.carg_hr));
 
-        public void update(int id, string newName, int? newInfo = null)
+        public void update(int id, dynamic info)
         {
             Disciplina disc = getDisciplina(id);
 
-            disc.update(newName, newInfo);
+            disc.update(info.newName, (info.newCargHr == 0) ? null : info.newCargHr);
         }
 
         public void delete(int id)

@@ -2,9 +2,9 @@
 {
     public interface CRUDProtocol
     {
-        void store(string name, int new_info);
+        void store(dynamic info);
         void show();
-        void update(int id, string newName, int? newInfo);
+        void update(int id, dynamic newInfo);
         void delete(int id);
         bool find(int id);
     }

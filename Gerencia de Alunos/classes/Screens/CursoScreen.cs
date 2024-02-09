@@ -18,7 +18,7 @@ namespace Gerencia_de_Alunos.classes.Screens
         public void create() {
             Console.WriteLine("\nEscreva o nome do curso: ");
             string name = Console.ReadLine();
-            cursos.store(name);
+            cursos.store(new {name});
 
             Console.WriteLine("\nCurso salva!");
             Enter.pressEnter();
@@ -36,7 +36,7 @@ namespace Gerencia_de_Alunos.classes.Screens
             Console.WriteLine("\nDigite o novo nome do curso: ");
             string newName = Console.ReadLine();
 
-            cursos.update(id, newName);
+            cursos.update(id, new { newName });
 
             Console.WriteLine("\nDisciplina modificada!");
             Enter.pressEnter();

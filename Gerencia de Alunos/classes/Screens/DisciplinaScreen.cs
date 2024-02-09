@@ -21,7 +21,7 @@ namespace Gerencia_de_Alunos.classes.Screens
             string name = Console.ReadLine();
             Console.WriteLine("\nEscreva a carga horaria da disciplina: ");
             int carg_hr = int.Parse(Console.ReadLine());
-            disciplinas.store(name, carg_hr);
+            disciplinas.store(new {name, carg_hr});
 
             Console.WriteLine("\nDisciplina salva!");
             Enter.pressEnter();
@@ -44,10 +44,10 @@ namespace Gerencia_de_Alunos.classes.Screens
             string newName = Console.ReadLine();
             Console.WriteLine("\nDigite a nova carga horaria (Opcional)");
 
-            int newCarg;
+            int newCargHr;
 
-            if(!int.TryParse(Console.ReadLine(), out newCarg)) disciplinas.update(id, newName);
-            else disciplinas.update(id, newName, newCarg);
+            if (!int.TryParse(Console.ReadLine(), out newCargHr)) disciplinas.update(id, new {newName, newCargHr});
+            else disciplinas.update(id, new {newName, newCargHr});
 
             Console.WriteLine("\nDisciplina modificada!");
             Enter.pressEnter();

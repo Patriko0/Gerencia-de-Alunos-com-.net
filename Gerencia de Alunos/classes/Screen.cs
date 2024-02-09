@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
+using System.Security.Cryptography;
 using Gerencia_de_Alunos.classes.interfaces;
 
 namespace Gerencia_de_Alunos.classes
