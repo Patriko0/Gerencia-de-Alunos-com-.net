@@ -46,6 +46,7 @@
     <Compile Include="classes\Aluno.cs" />
     <Compile Include="classes\Curso.cs" />
     <Compile Include="classes\Disciplina.cs" />
+    <Compile Include="classes\interfaces\CRUDProtocol.cs" />
     <Compile Include="classes\interfaces\Identity.cs" />
     <Compile Include="classes\interfaces\screenProtocol.cs" />
     <Compile Include="classes\Screen.cs" />
@@ -53,6 +54,9 @@
     <Compile Include="classes\Screens\CursoScreen.cs" />
     <Compile Include="classes\Screens\DisciplinaScreen.cs" />
     <Compile Include="classes\Screens\MainScreen.cs" />
+    <Compile Include="db\AlunosDB.cs" />
+    <Compile Include="db\CursosDB.cs" />
+    <Compile Include="db\DisciplinasDB.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="services\Enter.cs" />
