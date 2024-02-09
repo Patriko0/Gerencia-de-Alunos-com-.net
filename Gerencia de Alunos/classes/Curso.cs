@@ -9,13 +9,13 @@ namespace Gerencia_de_Alunos.classes
     {
         public string name { get; set; }
         public int id { get; }
+        private static int newId = 0;
         readonly private List<Disciplina> disciplinas = new List<Disciplina>();
 
-        public Curso (string name, int id, Disciplina disciplina)
+        public Curso (string name)
         {
             this.name = name;
-            this.id = id;
-            this.disciplinas.Add(disciplina);
+            this.id = Curso.newId++;
         }
 
         public List<string> getDisciplinas()
@@ -41,6 +41,8 @@ namespace Gerencia_de_Alunos.classes
             disciplinas.Remove(disc[0]);
         }
 
-        public void show() => Console.WriteLine("Nome: {0}", name);
+        public void show() => Console.WriteLine("\nNome: {0}\nId: {1}", name, id);
+
+        public void update(string name) => this.name = name;
     }
 }

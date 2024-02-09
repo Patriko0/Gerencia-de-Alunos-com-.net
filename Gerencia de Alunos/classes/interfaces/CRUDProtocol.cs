@@ -2,7 +2,7 @@
 {
     public interface CRUDProtocol
     {
-        void store(string name, int carg_hr);
+        void store(string name, int new_info);
         void show();
         void update(int id, string newName, int? newInfo);
         void delete(int id);
