@@ -60,12 +60,23 @@ namespace Gerencia_de_Alunos.db
         
         public void update(int id, dynamic obj)
         {
-            Curso curs = getCurso(id);
-            curs.update(obj.newName);
+            Curso curso = getCurso(id);
+            curso.update(obj.newName);
+        }
+        public void addDisciplina(int id, Disciplina discip)
+        {
+            Curso curso = getCurso(id);
+            curso.addDisciplina(discip);
+        }
+
+        public void showDisciplina(int id) {
+            Curso curso = getCurso(id);
+            curso.showDiscip();
         }
 
 
         public Curso getCurso(int id) => cursos.Where(item => item.id == id).FirstOrDefault();
+
 
     }
 }

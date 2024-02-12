@@ -9,7 +9,7 @@ namespace Gerencia_de_Alunos.db
     public class DisciplinasDB: CRUDProtocol
     {
         private static DisciplinasDB dbQuery;
-        private List<Disciplina> disciplinas;
+        private static List<Disciplina> disciplinas;
 
         private DisciplinasDB()
         {
@@ -29,7 +29,7 @@ namespace Gerencia_de_Alunos.db
             return DisciplinasDB.dbQuery;
         }
 
-        public void store(dynamic info) => this.disciplinas.Add(new Disciplina(info.name, info.carg_hr));
+        public void store(dynamic info) => disciplinas.Add(new Disciplina(info.name, info.carg_hr));
 
         public void update(int id, dynamic info)
         {
@@ -62,6 +62,6 @@ namespace Gerencia_de_Alunos.db
             return false;   
         }
 
-        public Disciplina getDisciplina(int id) => this.disciplinas.Where(item => item.id == id).FirstOrDefault();
+        public Disciplina getDisciplina(int id) => disciplinas.Where(item => item.id == id).FirstOrDefault();
     }
 }

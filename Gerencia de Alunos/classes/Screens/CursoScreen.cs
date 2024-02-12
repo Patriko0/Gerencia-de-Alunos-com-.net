@@ -7,10 +7,13 @@ namespace Gerencia_de_Alunos.classes.Screens
     public class CursoScreen:Screen
     {
         private static CursosDB cursos = CursosDB.connect();
+        private static DisciplinasDB disciplinas = DisciplinasDB.connect();
         public CursoScreen()
         {
             this.addAction(new Action(() => { read(); }), "Mostrar Cursos");
+            this.addAction(new Action(() => { showDisciplina(); }), "Mostrar disciplinas do curso");
             this.addAction(new Action(() => { create(); }), "Criar Cursos");
+            this.addAction(new Action(() => { addDisciplina(); }), "Adicionar disciplina" );
             this.addAction(new Action(() => { update(); }), "Editar Cursos");
             this.addAction(new Action(() => { delete(); }), "Deletar Cursos");
         }
@@ -50,6 +53,33 @@ namespace Gerencia_de_Alunos.classes.Screens
 
             Console.WriteLine("\nCurso deletado!");
             Enter.pressEnter();
+        }
+
+        public void addDisciplina()
+        {
+            Console.WriteLine("\nDigite o id do curso que deseja adicionar a disciplina: ");
+            int idCurso = int.Parse(Console.ReadLine());
+
+            if (!this.search(idCurso)) return;
+
+            disciplinas.show();
+            Console.WriteLine("\nDigite o id das disciplina que deseja adicionar ao curso: ");
+            int idDiscip = int.Parse(Console.ReadLine());
+
+            cursos.addDisciplina(idCurso, disciplinas.getDisciplina(idDiscip));
+        }
+
+        public void showDisciplina()
+        {
+            Console.WriteLine("Digite o id do curso: ");
+            int id = int.Parse(Console.ReadLine());
+
+            if (!this.search(id)) return;
+
+            cursos.showDisciplina(id);
+
+            Enter.pressEnter();
+
         }
         private bool search(int id)
         {

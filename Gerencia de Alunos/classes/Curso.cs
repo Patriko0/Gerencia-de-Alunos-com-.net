@@ -43,6 +43,12 @@ namespace Gerencia_de_Alunos.classes
 
         public void show() => Console.WriteLine("\nNome: {0}\nId: {1}", name, id);
 
+        public void showDiscip()
+        {
+            Console.WriteLine($"\nDisciplinas em {name}:\n");
+            foreach (Disciplina discip in disciplinas) Console.WriteLine("- " + discip.name + "\n");
+        }
+
         public void update(string name) => this.name = name;
     }
 }
