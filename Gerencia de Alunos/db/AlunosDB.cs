@@ -79,6 +79,11 @@ namespace Gerencia_de_Alunos.db
             aluno.showNotas();
         }
 
+        public static void deleteDisciplina(string discipName)
+        {
+            foreach (Aluno aluno in alunos) aluno.removeDisciplina(discipName);
+        }
+
         public Aluno getAluno(int id) => alunos.Where(item => item.id == id).FirstOrDefault();
     }
 }

@@ -41,6 +41,9 @@ namespace Gerencia_de_Alunos.db
         public void delete(int id)
         {
             Disciplina disc = getDisciplina(id);
+            CursosDB.deleteDisciplina(id);
+            AlunosDB.deleteDisciplina(disc.name);
+
             disciplinas.Remove(disc);
         }
 

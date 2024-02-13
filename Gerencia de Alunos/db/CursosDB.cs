@@ -74,9 +74,11 @@ namespace Gerencia_de_Alunos.db
             curso.showDiscip();
         }
 
-
         public Curso getCurso(int id) => cursos.Where(item => item.id == id).FirstOrDefault();
 
-
+        public static void deleteDisciplina(int id)
+        {
+            foreach (Curso curso in cursos) curso.removeDisciplina(id);   
+        }
     }
 }

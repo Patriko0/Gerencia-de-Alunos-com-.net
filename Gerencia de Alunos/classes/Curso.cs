@@ -39,7 +39,7 @@ namespace Gerencia_de_Alunos.classes
         public void removeDisciplina(int id)
         {
             List<Disciplina> disc = this.disciplinas.Where(item => item.id == id).ToList();
-            disciplinas.Remove(disc[0]);
+            if(disc.Count > 0) disciplinas.Remove(disc[0]);
         }
 
 

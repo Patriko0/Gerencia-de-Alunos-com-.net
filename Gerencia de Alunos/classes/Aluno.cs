@@ -60,6 +60,11 @@ namespace Gerencia_de_Alunos.classes
 
         public void show() => Console.WriteLine( "\nNome: {0}\nIdade: {1}\nMatricula: {2}\nCurso: {3}\n", name,idade,id,curso.name);
 
+        public void removeDisciplina(string discipName)
+        {
+            if(this.notas.ContainsKey(discipName)) this.notas.Remove(discipName);
+        }
+        
         public Curso getCurso() => this.curso;
         
     }
