@@ -17,8 +17,9 @@ namespace Gerencia_de_Alunos.classes
             this.name = name;
             this.id = Curso.newId++;
         }
+        public List<Disciplina> getDisciplinas() => this.disciplinas;
 
-        public List<string> getDisciplinas()
+        public List<string> getDisciplinasNames()
         {
             List<string> disciplinas = new List<string>();
 
@@ -40,6 +41,7 @@ namespace Gerencia_de_Alunos.classes
             List<Disciplina> disc = this.disciplinas.Where(item => item.id == id).ToList();
             disciplinas.Remove(disc[0]);
         }
+
 
         public void show() => Console.WriteLine("\nNome: {0}\nId: {1}", name, id);
 

@@ -9,7 +9,7 @@ namespace Gerencia_de_Alunos.db
     public class AlunosDB : CRUDProtocol
     {
         private static AlunosDB dbQuery;
-        private List<Aluno> alunos;
+        private static List<Aluno> alunos;
 
         private AlunosDB() {
             this.init();
@@ -17,7 +17,7 @@ namespace Gerencia_de_Alunos.db
 
         private void init()
         {
-            this.alunos = new List<Aluno>();
+            alunos = new List<Aluno>();
         }
 
         public static AlunosDB connect()
@@ -59,6 +59,18 @@ namespace Gerencia_de_Alunos.db
         {
             Aluno aluno = getAluno(id);
             aluno.updateInfo(newInfo.nome);
+        }
+
+        public void updateNota(int id, string disciplina, int nota)
+        {
+            Aluno aluno = getAluno(id);
+            aluno.updateNota(disciplina, nota);
+        }
+
+        public void showNota(int id)
+        {
+            Aluno aluno = getAluno(id);
+            aluno.showNotas();
         }
 
         public Aluno getAluno(int id) => alunos.Where(item => item.id == id).FirstOrDefault();

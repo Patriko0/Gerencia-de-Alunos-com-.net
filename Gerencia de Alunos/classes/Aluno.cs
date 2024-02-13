@@ -11,7 +11,7 @@ namespace Gerencia_de_Alunos.classes
         private static int newId = 0;
         public int idade;
 
-        public Curso curso;
+        private Curso curso;
         private Dictionary<string, float> notas = new Dictionary<string, float>();
 
        public Aluno(string name, int idade, Curso curso)
@@ -26,7 +26,7 @@ namespace Gerencia_de_Alunos.classes
 
         private void init()
         {
-            foreach(string disciplina in curso.getDisciplinas())
+            foreach(string disciplina in curso.getDisciplinasNames())
             {
                 notas.Add(disciplina, 0);
             }
@@ -34,20 +34,19 @@ namespace Gerencia_de_Alunos.classes
 
         public void showNotas()
         {
-            foreach (string disciplina in curso.getDisciplinas())
+            foreach (string disciplina in curso.getDisciplinasNames())
             {
-                Console.WriteLine("Disciplina: {0}\nNota:{1}\n", disciplina, notas[disciplina]);
+                Console.WriteLine("\nDisciplina: {0}\nNota:{1}\n", disciplina, notas[disciplina]);
             }
         }
 
         public void updateNota(string discip, float nota) => this.notas[discip] = nota;
 
-        public void updateInfo(string name)
-        {
-            this.name = name;
-        }
-
+        public void updateInfo(string name) => this.name = name;
+        
         public void show() => Console.WriteLine( "\nNome: {0}\nIdade: {1}\nMatricula: {2}\nCurso: {3}\n", name,idade,id,curso.name);
+
+        public Curso getCurso() => this.curso;
         
     }
 }

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Gerencia_de_Alunos.db;
 using Gerencia_de_Alunos.services;
 
@@ -10,8 +12,10 @@ namespace Gerencia_de_Alunos.classes.Screens
         CursosDB cursos = CursosDB.connect();
         public AlunoScreen() {
             this.addAction(new Action(() => { read(); }), "Mostrar alunos");
+            this.addAction(new Action(() => { showNota(); }), "Mostrar notas");
             this.addAction(new Action(() => { create(); }), "Criar aluno");
             this.addAction(new Action(() => { update(); }), "Editar alunos");
+            this.addAction(new Action(() => { editNota(); }), "Editar notas");
             this.addAction(new Action(() => { delete(); }), "Deletar alunos");
         }
 
@@ -61,6 +65,43 @@ namespace Gerencia_de_Alunos.classes.Screens
 
             Console.WriteLine("\nAluno deletado!");
             Enter.pressEnter();
+        }
+
+        public void showNota()
+        {
+            Console.WriteLine("\nDigite o id do aluno que deseja ver as notas: ");
+            int id = int.Parse(Console.ReadLine());
+
+            if (!this.search(id)) return;
+
+            alunos.showNota(id);
+
+            Enter.pressEnter();
+        }
+
+        public void editNota()
+        {
+            Console.WriteLine("\nDigite o id do aluno que deseja editar a nota: ");
+            int idAluno = int.Parse(Console.ReadLine());
+            if (!this.search(idAluno)) return;
+
+            List<Disciplina> disciplinas = alunos.getAluno(idAluno).getCurso().getDisciplinas();
+
+            foreach (Disciplina disciplina in disciplinas) disciplina.show();
+
+            Console.WriteLine("Escreva o id da disciplina que queira alterar a nota: ");
+            int idDiscip = int.Parse(Console.ReadLine());
+            List<Disciplina> discip = disciplinas.Where((disciplina) => disciplina.id == idDiscip).ToList();
+            if(discip.Count() == 0)
+            {
+                Console.WriteLine("Disciplina não encontrada");
+                return;
+            }
+
+            Console.WriteLine("Digite a nova nota: ");
+            int nota = int.Parse(Console.ReadLine());
+
+            alunos.updateNota(idAluno, discip[0].name, nota);
         }
 
         public bool search(int id)
