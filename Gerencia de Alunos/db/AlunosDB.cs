@@ -67,6 +67,12 @@ namespace Gerencia_de_Alunos.db
             aluno.updateNota(disciplina, nota);
         }
 
+        public void changeCurso(int id, Curso curso)
+        {
+            Aluno aluno = getAluno(id);
+            aluno.changeCurso(curso);
+        }
+
         public void showNota(int id)
         {
             Aluno aluno = getAluno(id);

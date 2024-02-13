@@ -43,7 +43,21 @@ namespace Gerencia_de_Alunos.classes
         public void updateNota(string discip, float nota) => this.notas[discip] = nota;
 
         public void updateInfo(string name) => this.name = name;
-        
+
+        public void changeCurso(Curso curso)
+        {
+            List<Disciplina> newDiscips = curso.getDisciplinas();
+            foreach (Disciplina discip in this.curso.getDisciplinas()) {
+                if (!(newDiscips.Contains(discip))) this.notas.Remove(discip.name);
+            }
+            foreach(Disciplina discip in curso.getDisciplinas())
+            {
+                if (notas.ContainsKey(discip.name)) continue;
+                notas.Add(discip.name, 0f);
+            }
+            this.curso = curso;
+        }
+
         public void show() => Console.WriteLine( "\nNome: {0}\nIdade: {1}\nMatricula: {2}\nCurso: {3}\n", name,idade,id,curso.name);
 
         public Curso getCurso() => this.curso;

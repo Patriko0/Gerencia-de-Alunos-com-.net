@@ -16,6 +16,7 @@ namespace Gerencia_de_Alunos.classes.Screens
             this.addAction(new Action(() => { create(); }), "Criar aluno");
             this.addAction(new Action(() => { update(); }), "Editar alunos");
             this.addAction(new Action(() => { editNota(); }), "Editar notas");
+            this.addAction(new Action(() => { changeCurso(); }), "Mudar curso");
             this.addAction(new Action(() => { delete(); }), "Deletar alunos");
         }
 
@@ -104,6 +105,20 @@ namespace Gerencia_de_Alunos.classes.Screens
             alunos.updateNota(idAluno, discip[0].name, nota);
         }
 
+        public void changeCurso()
+        {
+            Console.WriteLine("\nDigite o id do aluno que deseja mudar o curso: ");
+            int id = int.Parse(Console.ReadLine());
+            if (!this.search(id)) return;
+
+            Console.WriteLine("\nCursos disponiveis: ");
+            cursos.show();
+            Console.WriteLine("\nDigite o id do novo curso do aluno");
+            Curso curso = cursos.getCurso(int.Parse(Console.ReadLine()));
+
+            alunos.changeCurso(id, curso);
+        }
+
         public bool search(int id)
         {
             if (!alunos.find(id))
@@ -113,5 +128,6 @@ namespace Gerencia_de_Alunos.classes.Screens
             }
             return true;
         }
+
     }
 }
