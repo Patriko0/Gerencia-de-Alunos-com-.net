@@ -49,8 +49,13 @@ namespace Gerencia_de_Alunos.classes.Screens
             int id = int.Parse(Console.ReadLine());
 
             if (!this.search(id)) return;
-            cursos.delete(id);
+            if (AlunosDB.seachCurso(cursos.getCurso(id)))
+            {
+                Console.WriteLine("Existe um aluno matriculado no curso!");
+                Enter.pressEnter();
+            }
 
+            cursos.delete(id);
             Console.WriteLine("\nCurso deletado!");
             Enter.pressEnter();
         }

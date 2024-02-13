@@ -84,6 +84,12 @@ namespace Gerencia_de_Alunos.db
             foreach (Aluno aluno in alunos) aluno.removeDisciplina(discipName);
         }
 
+        public static bool seachCurso(Curso curso)
+        {
+            foreach(Aluno aluno in alunos) if (aluno.getCurso().Equals(curso)) return true;
+            return false;
+        }
+
         public Aluno getAluno(int id) => alunos.Where(item => item.id == id).FirstOrDefault();
     }
 }
